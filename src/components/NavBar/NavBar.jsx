@@ -10,7 +10,7 @@ export const NavBar = () => {
     <Container>
       <Header>
         <nav>
-          <Link to="/home">Home</Link>
+          <Link to="/">Home</Link>
           {isLogin && <Link to="/contacts">Contacts</Link>}
           {isLogin ? <UserMenu /> : <AuthLinks />}
         </nav>
