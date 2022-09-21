@@ -1,7 +1,7 @@
 const Home = () => {
   return (
     <main>
-      <h1>Welcome to home page</h1>
+      <h1 style={{ textAlign: 'center' }}>Welcome to home page</h1>
     </main>
   );
 };
