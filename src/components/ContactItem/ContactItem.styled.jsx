@@ -29,7 +29,6 @@ export const Btn = styled.button`
   cursor: pointer;
 `;
 export const ListItem = styled.li`
-  /* width: 300px; */
   display: flex;
   align-items: center;
   background-color: #eeeeee;

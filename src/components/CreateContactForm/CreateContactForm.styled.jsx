@@ -11,10 +11,10 @@ export const H1 = styled.h1`
 `;
 
 export const Form = styled.form`
-  /* background-color: #eeeeee; */
+  
   padding: 10px;
   border-radius: 10px;
-  /* border: 1px solid #cacaca; */
+  
   display: flex;
   flex-direction: row;
   gap: 10px;
