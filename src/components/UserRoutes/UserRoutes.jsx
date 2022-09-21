@@ -22,7 +22,7 @@ const UserRoutes = () => {
         </Route>
 
         <Route element={<PrivateRoute />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/contacts" element={<Contacts />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
