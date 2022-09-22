@@ -12,23 +12,15 @@ import {
 } from './CreateContactForm.styled';
 
 const CreateContactForm = ({ onSubmit }) => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [contact, setContact] = useState({
+    name: '',
+    number: '',
+  });
 
   const handleChange = e => {
-    const { name, value } = e.currentTarget;
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'number':
-        setNumber(value);
-        break;
-      default:
-        return;
-    }
+    setContact(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
+  const { name, number } = contact;
   const handleSubmit = e => {
     e.preventDefault();
     onSubmit({ name, number });
@@ -36,8 +28,7 @@ const CreateContactForm = ({ onSubmit }) => {
   };
 
   const reset = () => {
-    setName('');
-    setNumber('');
+    setContact({ name: '', number: '' });
   };
   return (
     <Section>

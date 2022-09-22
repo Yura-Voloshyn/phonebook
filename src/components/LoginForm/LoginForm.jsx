@@ -7,22 +7,16 @@ import {
   StyledBtn,
 } from './LoginForm.styled';
 const LoginForm = ({ onSubmit }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+  });
+
   const handleChange = e => {
-    const { name, value } = e.currentTarget;
-    switch (name) {
-      case 'email':
-        setEmail(value);
-        break;
-      case 'password':
-        setPassword(value);
-        break;
-      default:
-        return;
-    }
+    setUser(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const { email, password } = user;
   const handleSubmit = e => {
     e.preventDefault();
     onSubmit({ email, password });
@@ -30,8 +24,7 @@ const LoginForm = ({ onSubmit }) => {
   };
 
   const reset = () => {
-    setEmail('');
-    setPassword('');
+    setUser({ email: '', password: '' });
   };
   return (
     <StyledLoginForm onSubmit={handleSubmit}>

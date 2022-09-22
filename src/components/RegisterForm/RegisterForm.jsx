@@ -8,26 +8,18 @@ import {
 import { useState } from 'react';
 
 const RegisterForm = ({ onSubmit }) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [newUser, setNewUser] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  // const [name, setName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
   const handleChange = e => {
-    const { name, value } = e.currentTarget;
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'email':
-        setEmail(value);
-        break;
-      case 'password':
-        setPassword(value);
-        break;
-      default:
-        return;
-    }
+    setNewUser(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
+  const { name, email, password } = newUser;
   const handleSubmit = e => {
     e.preventDefault();
     onSubmit({ name, email, password });
@@ -35,9 +27,7 @@ const RegisterForm = ({ onSubmit }) => {
   };
 
   const reset = () => {
-    setName('');
-    setEmail('');
-    setPassword('');
+    setNewUser({ name: '', email: '', password: '' });
   };
   return (
     <StyledRegisterForm onSubmit={handleSubmit}>
